@@ -1,7 +1,7 @@
 Marketplace Projector
 -
 
-###Running Project
+### Running Project
 - Credentials Needed
   - Aws Access keys
   - postgres user and pw 
@@ -18,7 +18,7 @@ Marketplace Projector
     now Anything that is test outside of the repository should mock the repo layer
 - To run the unit test `npm run test:unit`
 
-###Purpose
+### Purpose
 - To read events off SQS queue and push into a postgres db so they can later be processed by 
 an enhancement api
 - This was also a P.O.C to see if this node process would take up less memory than a spring service. 
