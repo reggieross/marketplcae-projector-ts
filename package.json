@@ -1,0 +1,66 @@
+{
+  "name": "marketplace-projector-ts",
+  "version": "1.0.0",
+  "description": "Read messages into sqs queue in order to be placed in PostgresDB",
+  "main": "./build/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node ./build/index.js",
+    "test:integration": "npm run migrate && jest --config=jest.integration.config.json --passWithNoTests --forceExit --ci",
+    "test:unit": "jest --config=jest.unit.config.json --passWithNoTests --forceExit --ci",
+    "migrate": "knex migrate:latest --env development && npx knex seed:run --env development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reggieross/marketplcae-projector-ts.git"
+  },
+  "author": "Reginald Ross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/reggieross/marketplcae-projector-ts/issues"
+  },
+  "homepage": "https://github.com/reggieross/marketplcae-projector-ts#readme",
+  "dependencies": {
+    "@types/lodash": "^4.14.149",
+    "@types/uuid": "^7.0.2",
+    "@types/uuidv4": "^5.0.0",
+    "aws-sdk": "^2.643.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "knex": "^0.20.13",
+    "lodash": "^4.17.15",
+    "pg-promise": "^8.7.5",
+    "sqs-consumer": "^5.4.0",
+    "ts-jest": "^25.2.1",
+    "uuid": "^7.0.2",
+    "uuidv4": "^6.0.6"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^12.0.7",
+    "prettier": "^2.0.1",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.5.1"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>/src"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ]
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true
+  }
+}

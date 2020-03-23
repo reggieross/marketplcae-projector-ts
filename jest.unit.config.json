@@ -1,0 +1,12 @@
+{
+  "roots": [
+    "<rootDir>/src"
+  ],
+  "transform": {
+    "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest"
+  },
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/src/repository"
+  ]
+}

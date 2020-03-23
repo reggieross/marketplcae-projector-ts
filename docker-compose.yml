@@ -1,0 +1,30 @@
+version: '3.0'
+services:
+  postgres:
+    image: postgres:11.5
+    environment:
+      POSTGRES_PASSWORD: passw0rd
+      POSTGRES_USER: intergration-test-user
+      POSTGRES_DB: catalog
+    ports:
+      - "5432:5432"
+    networks:
+      - marketplace-projector-net
+  marketplace-projector-ts:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    image: 'marketplace-projector-ts:dev'
+    ports:
+      - "5001:5000"
+    depends_on:
+      - 'postgres'
+    environment:
+      - POSTGRES_DATABASE_USER=intergration-test-user
+      - POSTGRES_DATABASE_PW=passw0rd
+      - POSTGRES_DATABASE_HOST_DEV=ostgres:5432
+    networks:
+      - marketplace-projector-net
+networks:
+  marketplace-projector-net:
+    driver: bridge
