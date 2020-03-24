@@ -4,7 +4,7 @@ import { fromString, uuid } from 'uuidv4'
 import { Currency } from '../enum/Currency'
 import { Site } from '../enum/Site'
 
-export class PriceEntityDecorator {
+export class PriceEntityBuilder {
     readonly priceEntity: PriceEntity
 
     constructor(price: Price, product_id: string) {

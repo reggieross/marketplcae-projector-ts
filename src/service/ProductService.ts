@@ -9,6 +9,7 @@ import {
     validatePrice,
     validateProduct,
 } from './ProductValidator'
+import {LogLevel} from "../enum/LogLevel";
 
 const log = getLogger()
 
@@ -19,12 +20,12 @@ const processProductMessage = async (message: Message) => {
         brandId = await BrandRepository.createBrand(brand)
     }
 
-    const productId = await ProductRepository.createProduct(product, brandId)
+    const productId = await ProductRepository.createProduct(product, brandId);
     if (productId && price) {
         await PriceRepository.createPrice(price, productId)
     }
 
-    console.log(`successfully processed ${product.name}: ${productId}`)
+    console.log(`successfully processed ${product.name}: ${productId}`, LogLevel.INFO)
 }
 
 const parseAndValidateProductMessage = (

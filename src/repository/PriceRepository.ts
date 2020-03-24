@@ -1,11 +1,11 @@
 import {getDB} from "./db";
-import {BrandEntityDecorator} from "../entity_decorator/BrandEntityDecorator";
+import {BrandEntityBuilder} from "../entity_builder/BrandEntityBuilder";
 import {Price} from "../types/clientDataTypes";
-import {PriceEntityDecorator} from "../entity_decorator/PriceEntityDecorator";
+import {PriceEntityBuilder} from "../entity_builder/PriceEntityBuilder";
 
 const createPrice = async (price: Price, productId: string): Promise<string> => {
     const db = getDB()
-    const priceEntity = new PriceEntityDecorator(price, productId).getPriceEntity()
+    const priceEntity = new PriceEntityBuilder(price, productId).getPriceEntity()
     const query =
         'insert into price (${this:name}) values (${this:csv}) returning id;'
     const res: Array<{ id: string }> = await db.any(query, priceEntity)

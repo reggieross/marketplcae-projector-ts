@@ -1,7 +1,7 @@
 import { Product } from '../types/clientDataTypes'
 import { IProductEntity } from '../types/entityDataTypes'
 
-export class ProductEntityDecorator {
+export class ProductEntityBuilder {
     readonly productEntity
 
     constructor(product: Product, brandId?: string) {

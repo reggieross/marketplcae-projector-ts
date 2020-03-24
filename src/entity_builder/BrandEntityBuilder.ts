@@ -1,7 +1,7 @@
 import { Brand } from '../types/clientDataTypes'
 import { fromString } from 'uuidv4'
 
-export class BrandEntityDecorator {
+export class BrandEntityBuilder {
     readonly brandEntity
 
     constructor(brand: Brand) {

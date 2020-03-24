@@ -1,13 +1,13 @@
 import { Product } from '../types/clientDataTypes'
 import { getDB } from './db'
-import { ProductEntityDecorator } from '../entity_decorator/ProductEntityDecorator'
+import { ProductEntityBuilder } from '../entity_builder/ProductEntityBuilder'
 
 const createProduct = async (
     product: Product,
     brandId?: string
 ): Promise<string | null> => {
     const db = getDB()
-    const productEntity = new ProductEntityDecorator(
+    const productEntity = new ProductEntityBuilder(
         product,
         brandId
     ).getProductEntity()

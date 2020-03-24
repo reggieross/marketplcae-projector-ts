@@ -1,10 +1,10 @@
 import { getDB } from './db'
-import { BrandEntityDecorator } from '../entity_decorator/BrandEntityDecorator'
+import { BrandEntityBuilder } from '../entity_builder/BrandEntityBuilder'
 import { Brand } from '../types/clientDataTypes'
 
 const createBrand = async (brand: Brand): Promise<string> => {
     const db = getDB()
-    const brandEntity = new BrandEntityDecorator(brand).getBrandEntity()
+    const brandEntity = new BrandEntityBuilder(brand).getBrandEntity()
     const query = `
     WITH insertQuery AS (
         insert into brand ($(brandEntity:name)) values ($(brandEntity:csv))
