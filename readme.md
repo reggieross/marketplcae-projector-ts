@@ -26,3 +26,5 @@ an enhancement api
         - This Service does seem to take up less memory due to the fact that it doesn't have to spin
         up and embedded tomcat server like spring does. However the speed at which requests are processed is far slower.
         If we scale horizontally I don't see this as an issue. 
+        - Java service avg memory use: `834mb`
+        - Node service avg memory usue: 

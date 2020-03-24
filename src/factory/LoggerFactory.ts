@@ -14,11 +14,14 @@ class Logger {
     log = (message: string, level: LogLevel = LogLevel.INFO) => {
         switch (level) {
             case LogLevel.ERROR:
-                console.error(message)
+                console.error(message);
+                return;
             case LogLevel.INFO:
-                console.info(message)
+                console.info(message);
+                return;
             case LogLevel.WARN:
-                console.warn(message)
+                console.warn(message);
+                return;
         }
     }
 }
